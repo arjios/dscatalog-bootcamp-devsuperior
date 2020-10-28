@@ -3,9 +3,9 @@ import React from 'react';
 import './style.scss';
 
 import { Link } from 'react-router-dom';
-import { ReactComponent as MainImage } from "../../core/assets/images/main-image.svg"
+import { ReactComponent as MainImage } from "core/assets/images/main-image.svg"
 
-import ButtonIcon from '../../core/components/ButtonIcon';
+import ButtonIcon from 'core/components/ButtonIcon';
 
 
 const Home = () => (
