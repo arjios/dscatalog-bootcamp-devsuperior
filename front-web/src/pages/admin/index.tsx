@@ -1,9 +1,10 @@
 import React from 'react';
+import Navbar from './Components/NavBar';
 
 const Admin = () => (
 
     <div>
-        <h1>ADMINISTRAÇÂO</h1>
+        <Navbar />
     </div>
 
 );
