@@ -36,7 +36,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		
-		//Liberar h2-console
+		/* Liberar h2-console */
 		if(Arrays.asList(env.getActiveProfiles()).contains("test")) {
 			http.headers().frameOptions().disable();
 		}
@@ -49,7 +49,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 			.anyRequest().authenticated();
 		
 	}
-	
-	
-
 }
