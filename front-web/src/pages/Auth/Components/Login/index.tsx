@@ -1,0 +1,57 @@
+import ButtonIcon from 'core/components/ButtonIcon';
+import React  from 'react';
+import {Link} from 'react-router-dom';
+import {useForm} from 'react-hook-form';
+import AuthCard from '../Card/';
+
+import "./styles.scss";
+
+type FormData = {
+   email: string;
+   password: string;
+}
+
+
+const Login = () => {
+
+   const { register, handleSubmit, errors } = useForm<FormData>();
+
+   const onSubmit=(data: FormData) => {
+      console.log(data);
+   }
+
+    return(
+        <AuthCard title="login">
+            <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+                <input
+                 type="email"
+                 className="form-control input-base margin-botton-30"
+                 placeholder="Email"
+                 name="email"
+                 ref={register}
+                 />
+                <input
+                 type="password"
+                 className="form-control input-base"
+                 placeholder="Senha"
+                 name="password"
+                 ref={register}
+                />
+                 <Link to="/admin/auth/recover" className="login-link-recover">
+                    Esqueceu a senha?
+                 </Link>
+                 <div className="login-submit">
+                    <ButtonIcon text="Logar"/>
+                 </div>
+                 <span className="not-register">
+                    Não tem registro?
+                 </span>
+                 <Link to="/admin/auth/register" className="login-link-register">
+                    CADASTRAR
+                 </Link>
+            </form>
+        </AuthCard>
+    );
+}
+
+export default Login;
