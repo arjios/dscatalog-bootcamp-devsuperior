@@ -1,4 +1,4 @@
-import { makeRequest } from 'core/utils/request';
+import { makePrivateRequest } from 'core/utils/request';
 import React, { useState } from 'react';
 import BaseForm from '../../BaseForm';
 
@@ -36,7 +36,7 @@ const Form = () => {
             imgUrl: 'https://a-static.mlcdn.com.br/1500x1500/console-playstation-5-digital-edition-ps5-sony/magazineluiza/043079600/176b094453a20c32c655ec071d3ad4e5.jpg',
             categories: [{ id: formData.category }]
         }
-        makeRequest({ url: '/products', method: 'POST', data: payload })
+        makePrivateRequest({ url: '/products', method: 'POST', data: payload })
         .then(() => {
             setFormData({name:'', category:'', price:'', description:''});
         });
