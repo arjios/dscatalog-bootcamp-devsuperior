@@ -1,3 +1,4 @@
+import { isAllowedByRole } from 'core/utils/Auth';
 import { makePrivateRequest } from 'core/utils/request';
 import React, { useState } from 'react';
 import BaseForm from '../../BaseForm';
@@ -37,9 +38,9 @@ const Form = () => {
             categories: [{ id: formData.category }]
         }
         makePrivateRequest({ url: '/products', method: 'POST', data: payload })
-        .then(() => {
-            setFormData({name:'', category:'', price:'', description:''});
-        });
+            .then(() => {
+                setFormData({ name: '', category: '', price: '', description: '' });
+            });
     }
 
     return (
@@ -72,7 +73,8 @@ const Form = () => {
                             placeholder="Preço"
                         />
                     </div>
-                        <div className="col-6">
+                    <div className="col-6">
+                        {isAllowedByRole(['ROLE_ADMIN']) && (
                             <textarea
                                 name="description"
                                 value={formData.description}
@@ -81,7 +83,8 @@ const Form = () => {
                                 cols={30}
                                 rows={10}
                             />
-                        </div>
+                        )}
+                    </div>
                 </div>
             </BaseForm>
         </form>
